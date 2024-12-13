@@ -30,7 +30,7 @@ def main():
     st.title("📜🇺🇸congerssional bill tracker")
     st.markdown('Explore legislative data using the Congress API.')
     congress = st.sidebar.text_input("Please select your congressional session")
-    query_params = st.sidebar.text_input('Query Parameters (optional)", "introduced"')
+    bill_type = st.sidebar.text_input('Bill Type (e.g., "hr" for House bills, "s" for Senate bills)', placeholder="Enter bill type")
     bills = fetch_bills(congress,query_params)
     if bills:
         df = pd.DataFrame(bills)
