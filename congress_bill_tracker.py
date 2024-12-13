@@ -31,7 +31,7 @@ def main():
     st.markdown('Explore legislative data using the Congress API.')
     congress = st.sidebar.text_input("Please select your congressional session")
     bill_type = st.sidebar.text_input('Bill Type (e.g., "hr" for House bills, "s" for Senate bills)', placeholder="Enter bill type")
-    bills = fetch_bills(congress,query_params)
+    bills = fetch_bills(congress,bill_type)
     if bills:
         df = pd.DataFrame(bills)
         st.dataframe(df)
