@@ -31,10 +31,13 @@ def main():
     st.markdown('Explore legislative data using the Congress API.')
     congress = st.sidebar.text_input("Please select your congressional session")
     bill_type = st.sidebar.text_input('Bill Type (e.g., "hr" for House bills, "s" for Senate bills)', placeholder="Enter bill type")
-    bills = fetch_bills(congress,bill_type)
-    if bills:
-        df = pd.DataFrame(bills)
-        st.dataframe(df)
+    if congress and bill_type:
+        bills = fetch_bills(congress, bill_type)
+        if bills:
+            bill_titles = [bill.get("title") for bill in bills]
+            st.write("Bills Found:", bill_titles)  # Just show titles to keep it small
+        else:
+            st.warning('No bills found.')
 if __name__ == '__main__':
     main()
 
