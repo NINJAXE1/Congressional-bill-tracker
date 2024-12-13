@@ -8,7 +8,7 @@ def fetch_bills(congress, query_params = "" ):
     header = {
         'X-Api-Key':API_KEY
     }
-    response = requests.get(url, header = header)
+    response = requests.get(url, headers=header)
     if response.status_code == 200:
         data = response.json()
         st.write(data)
