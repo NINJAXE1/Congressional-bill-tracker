@@ -33,7 +33,7 @@ def main():
     bills = fetch_bills(congress, bill_type)
     if bills:
         df = pd.DataFrame(bills)
-        st.dataframe(df
+        st.dataframe(df)
 if __name__ == '__main__':
     main()
 
