@@ -3,8 +3,8 @@ import streamlit as st
 import requests
 API_KEY = 'shJQ4C07xdCbP8BgFPq9lldlG91IIWUSjVkUChnj'
 BASE_URL = 'https://api.congress.gov/v3/bill'
-def fetch_bills(congress, query_params = "" ):
-    url = f"{BASE_URL}/bills/{congress}/{query_params}"
+def fetch_bills(congress, bill_type ):
+    url = f"{BASE_URL}/{congress}/{bill_type}"
     header = {
         'X-Api-Key':API_KEY
     }
